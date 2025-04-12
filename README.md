@@ -31,6 +31,13 @@ Install poetry
 pip install poetry
 ```
 
+### SDK (AVNU API Python Client)
+```bash
+pip install setuptools
+cd sdk/avnu-python-client
+python setup.py install
+```
+
 Install the agent
 
 ```bash
@@ -42,3 +49,4 @@ Run the agent
 ```bash
 poetry run serve
 ```
+
