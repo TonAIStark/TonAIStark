@@ -1,9 +1,12 @@
+
+import json
 from avnu_python_client.api_client import ApiClient
 from avnu_python_client.configuration import Configuration
 from avnu_python_client.api.starknet_api import StarknetApi
 from avnu_python_client.api.swap_api import SwapApi
 from avnu_python_client.models.token_dto import TokenDto
 from avnu_python_client.models.quote import Quote
+
 
 from typing import List
 
@@ -48,19 +51,24 @@ def get_quotes(sellTokenAddress: str, buyTokenAddress: str, sellAmount: str) -> 
     
     # Call the get_quotes method and return the result
     try:
-        response = swap_api.get_prices1_without_preload_content(
+        response = swap_api.get_quotes(
             sell_token_address=sellTokenAddress,
             buy_token_address=buyTokenAddress,
             sell_amount=sellAmount)
-        return response.read().decode("utf-8")
+        json_str = response.read().decode("utf-8")
+        
+        print(json_str)
+        # Parse the JSON response
+        quotes_data = json.loads(json_str)
+        return quotes_data
     except Exception as e:
         print(f"Error: {e}")
         return []
 
-#tokens: List[TokenDto] = get_tokens()
-#quote = get_quotes(
+tokens: List[TokenDto] = get_tokens()
+quote: List[Quote] = get_quotes(
     sellTokenAddress="0x49d36570d4e46f48e99674bd3fcc84644ddd6b96f7c741b1562b82f9e004dc7",
     buyTokenAddress="0x4718f5a0fc34cc1af16a1cdee98ffb20c31f5cd61d6ab07201858f4287c938d",
-    sellAmount="0x100")
+    sellAmount="0xDE0B6B3A7640000")
 
-#print(quote)
+print(quote)
