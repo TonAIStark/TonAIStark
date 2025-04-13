@@ -1,4 +1,8 @@
-# TonAIStark
+![tonai-stark](./assets/tonai-stark.png)
+
+<h1 align="center">Ton<span style='color:red'>AI</span> Stark</h1>
+<p>
+</p>
 
 
 ## Client
