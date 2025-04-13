@@ -16,7 +16,18 @@
 
 ## Project Overview
 
+TonAI Stark is an intelligent chatbot intended for beginners that want to start with cryptoinvesting. 
 
+```
+.
+├── assets
+├── debugging
+├── LICENSE
+├── README.md
+├── sdk
+├── tonai-agent
+└── tonai-client
+```
 
 ## Technologies Used
 
