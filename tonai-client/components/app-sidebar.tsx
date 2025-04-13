@@ -35,8 +35,8 @@ export function AppSidebar() {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="/">
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <img src="/assets/ironman-icon.png" alt="AI" className="size-8"/>
+                <div className="flex aspect-square size-10 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                  <img src="/assets/tonai-icon-bgw.png" alt="AI" className="size-10 rounded-lg bg-white-100"/>
                 </div>
                 <span className="font-semibold">Ton<span className="text-red-600">AI</span>-Stark</span>
               </Link>
