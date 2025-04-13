@@ -16,9 +16,25 @@
 
 ## Project Overview
 
+
+
 ## Technologies Used
 
+For this project, the following technologies have been used:
+
+* [LangGraph](https://www.langchain.com/langgraph) for developing the `TonAI-Stark` agent
+* [Next.js](https://nextjs.org/) and [React](https://react.dev/) for developing the web UI
+* [StarkNet](https://www.starknet.io/) as the L2 blockchain to interact with
+* [Argent X](https://www.argent.xyz/argent-x) as the user wallet
+* [AVNU APIs](https://starknet.api.avnu.fi/webjars/swagger-ui/index.html#/Swap/getTokens%202) to interact with AVNU's contracts
+* [CoinGecko](https://www.coingecko.com/)'s API to query tokens price and trends
+
+
 ## Screenshots
+
+| ![](assets/step-0.png) | ![](assets/step-1.png) |
+|-----------------|-----------------|
+| ![](assets/step-2.png) | ![](assets/step-3.png) |
 
 ## Installation Guide
 
