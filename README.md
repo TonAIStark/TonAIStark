@@ -32,9 +32,13 @@ For this project, the following technologies have been used:
 
 ## Screenshots
 
-| ![](assets/step-0.png) | ![](assets/step-1.png) |
-|-----------------|-----------------|
-| ![](assets/step-2.png) | ![](assets/step-3.png) |
+| Interact with TonAI-Stark! |
+|-------|
+| ![](assets/step-1.png) |
+| ![](assets/step-2.png) |
+| ![](assets/step-3.png) |
+| ![](assets/step-4.png) |
+
 
 ## Installation Guide
 
