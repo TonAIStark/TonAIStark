@@ -27,6 +27,7 @@
     "react-json-view-lite": "^2.3.0",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.0",
+    "starknet": "^6.24.1",
     "starkweb": "^0.0.21",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
