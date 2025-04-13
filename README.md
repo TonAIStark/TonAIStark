@@ -14,20 +14,12 @@
   <a href="#installation-guide">Installation</a>
 </p>
 
-## Project Overview
+<h4 align="center">Project developed during the Hackaton `AI Encode London`</h4>
 
-TonAI Stark is an intelligent chatbot intended for beginners that want to start with cryptoinvesting. 
 
-```
-.
-├── assets
-├── debugging
-├── LICENSE
-├── README.md
-├── sdk
-├── tonai-agent
-└── tonai-client
-```
+## Project
+
+TonAI Stark is an AI-powered DeFi assistant designed to make crypto on Starknet simple, smart, and stylish. Think JARVIS meets Web3: users connect their wallets (like Argent X), and TonAI reads on-chain data to explain tokens, track trends, and guide actions like swaps or staking — always with clarity, confidence, and a touch of sarcasm. Built using OpenAI’s o3-mini model within the LangGraph framework, it leverages real-time tools like CoinGecko and AVNU to deliver sharp insights and smooth interactions. The frontend? A sleek Next.js + React interface that’s as polished as the assistant itself.
 
 ## Technologies Used
 
