@@ -28,10 +28,10 @@ export default function ChatPage() {
   const [restoreError, setRestoreError] = useState(false);
 
   const exampleMessages = [
-    "What is the StarkNet?",
-    "Which token has the best trend?",
-    "Help me swapping 10 STRK to ETH",
-    "Is this swap convenient?",
+        "What do you do?",
+        "How should I start?",
+        "Let's swap 10 STRK to ETH",
+        "Is there a coin with a growing trend?"
   ];
 
   const onCheckpointStart = (checkpoint: AppCheckpoint<AgentState, InterruptValue>) => {

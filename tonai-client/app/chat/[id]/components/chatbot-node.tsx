@@ -17,7 +17,7 @@ export function ChatbotNode({ nodeState }: ChatbotNodeProps) {
     switch (type) {
       case 'ai':
         return {
-          icon: <img src="/assets/ironman-icon.png" alt="AI" className="h-25 w-25"/>,
+          icon: <img src="/assets/tonai-icon.png" alt="AI" className="h-25 w-25 rounded-full"/>,
           className: baseClasses
         };
       case 'user':
