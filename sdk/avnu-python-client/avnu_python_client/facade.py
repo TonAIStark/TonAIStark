@@ -6,7 +6,7 @@ from avnu_python_client.api.starknet_api import StarknetApi
 from avnu_python_client.api.swap_api import SwapApi
 from avnu_python_client.models.token_dto import TokenDto
 from avnu_python_client.models.quote import Quote
-
+from avnu_python_client.models.build_swap_response import BuildSwapResponse
 
 from typing import List
 

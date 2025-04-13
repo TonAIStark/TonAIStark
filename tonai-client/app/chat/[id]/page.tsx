@@ -11,7 +11,7 @@ import { AgentState, InterruptValue, ResumeValue } from './agent-types';
 import { CheckpointCard } from './components/checkpoint-card';
 import { ChatbotNode } from './components/chatbot-node';
 import { Checkbox } from "@/components/ui/checkbox";
-import WeatherNode from './components/weather/weather-node';
+import SwapNode from './components/swap/swap-node';
 import Reminder from './components/reminder';
 import { NodeCard } from './components/node-card';
 
@@ -134,8 +134,8 @@ export default function ChatPage() {
       case '__start__':
       case 'chatbot':
         return <ChatbotNode nodeState={node.state} />;
-      case 'weather':
-        return <WeatherNode nodeState={node.state} />;
+      case 'swap':
+        return <SwapNode nodeState={node.state} />;
       case 'reminder':
         return <Reminder interruptValue={checkpoint.interruptValue as string} onResume={handleResume} />;
       default:
