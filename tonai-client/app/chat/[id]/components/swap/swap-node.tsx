@@ -9,7 +9,67 @@ interface SwapNodeProps {
 
 export default function SwapNode({ nodeState }: SwapNodeProps) {
   
-  console.log("porcodio... Salvata:", nodeState?.swap_data);
+  async function someAsyncFunction(swapData: Record<string, any>): Promise<any> {
+    const provider = (window as any).starknet;
+  
+    if (!provider) {
+      alert("Argent X not found");
+      return;
+    }
+  
+    try {
+      await provider.enable();
+      const account = provider.account;
+      
+      console.log("Account:", account.address);
+      console.log("Swap Data:", swapData.quoteId);
+      const url = "https://sepolia.api.avnu.fi/swap/v2/build";
+
+      const payload = {
+        quoteId: swapData.quoteId,            // parameter passed via swapData
+        takerAddress: account.address,  // parameter passed via swapData
+        slippage: 0.05,
+        includeApprove: true
+      };
+
+      
+    
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+    
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const responseDict = await response.json();
+      console.log("Response JSON:", responseDict);
+      
+      // For each responseDict["calls"] element, you need to call the contract
+      // and execute the function with the appropriate parameters 
+
+      
+      for (const call of responseDict.calls) {
+        const tx = await account.execute({
+          contractAddress: call.contractAddress, // Replace with real address
+          entrypoint: call.entrypoint, // Replace with actual function name
+          calldata: call.calldata // Adjust arguments to match ABI
+        });
+          console.log("Transaction sent! Hash:", tx.transaction_hash);
+
+          // Delay 3 seconds before checking the transaction status
+          await new Promise(resolve => setTimeout(resolve, 3000));
+          
+      }
+    } catch (err) {
+      console.error("Transaction error:", err);
+    }
+  };
+
 
   const handleCall = async () => {
     if (nodeState?.swap_data) {
@@ -22,33 +82,16 @@ export default function SwapNode({ nodeState }: SwapNodeProps) {
     }
   };
 
-  if (nodeState?.swap_data) {
-    return (
-      <div className="flex justify-end">
-        <Card className="inline-block">
-          <CardContent className="p-2">
-            <div className="flex items-center gap-2">
-              <Loader2 className="w-6 h-6 animate-spin" />
-              {/* Clicking the div triggers the async function */}
-              <div className="text-sm" onClick={handleCall}>
-                {nodeState.swap_data["quoteId"]}
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    );
-   }
-
-  if (nodeState?.swap_data) {
+  if (!nodeState?.swap_data) {
     return null;
   }
 
   return (
     <div className="flex justify-end">
-      <SwapCard />
+      <div onClick={handleCall}>
+        <SwapCard priceIn={nodeState?.swap_data.sellAmountInUsd} priceOut={nodeState?.swap_data.buyAmountInUsd} priceRatio={nodeState?.swap_data.priceRatioUsd} />
+      </div>
     </div>
   );
 
-  return null;
 }
