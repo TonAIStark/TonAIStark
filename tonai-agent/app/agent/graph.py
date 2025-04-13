@@ -31,13 +31,6 @@ from .tools.get_swap_quota import (
 
 load_dotenv()
 
-print('CoinGecko key')
-print(os.environ.get("COINGECKO_API_KEY"))
-
-print('OpenAI key')
-print(os.environ.get("OPENAI_API_KEY"))
-
-
 class State(lgraph.MessagesState):
     """
     State of the automa
