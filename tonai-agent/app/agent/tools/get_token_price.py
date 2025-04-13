@@ -8,10 +8,12 @@ from langgraph.types import StreamWriter
 from langchain_core.messages import ToolMessage
 from langchain_core.tools import tool
 
+from ..tokens import SUPPORTED_STARKNET_TOKENS
+
 
 @tool
 def get_token_price_tool(
-    coin_id: Annotated[str, "The ID of the cryptocurrency token (e.g., 'starknet'"],
+    token: Annotated[str, "The ID of the cryptocurrency token (e.g., 'STRK' for starknet or 'ETH' for ethereum"],
     history_length_in_days: Annotated[int, "The number of past days for which to retrieve the price history."]
 ) -> str:
     """
@@ -26,7 +28,7 @@ class TokenPriceInput(TypedDict):
     It includes the cryptocurrency ID, the length of the historical data to fetch, 
     and the LangChain tool call ID.
     """
-    coin_id: str
+    token: str
     history_length_in_days: str
     tool_call_id: str
 
@@ -43,11 +45,16 @@ async def get_token_price_streamed(input: TokenPriceInput, writer: StreamWriter)
     Returns:
         dict: A dictionary containing a list with a single ToolMessage representing the fetched price data.
     """
-       
-    coin_id = input['coin_id']
-    history_length_in_days = int(input['history_length_in_days'])
+    token = input['token']
     tool_call_id = input["tool_call_id"]
+    history_length_in_days = int(input['history_length_in_days'])
     
+    if token not in SUPPORTED_STARKNET_TOKENS:
+        print(f'Specified token ({token}) not supported')
+        msg = ToolMessage(content=f'Specified token ({token}) not supported', tool_call_id=tool_call_id)    
+        return {'messages': [msg]}
+
+    coin_id = SUPPORTED_STARKNET_TOKENS[token]['api_id']        
     to_date = datetime.datetime.now(datetime.timezone.utc)
     fr_date = to_date - datetime.timedelta(days=history_length_in_days)
     

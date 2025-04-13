@@ -45,7 +45,7 @@ class State(lgraph.MessagesState):
     messages: Annotated[Sequence[AnyMessage], add_messages] \
         = field(default_factory=list)
     
-    swap_quote_id: str = field(default_factory="")
+    swap_quote_id: dict = field(default_factory={})
     
 #==============================================
 # LLM agent
@@ -61,8 +61,8 @@ async def chatbot(state: State):
         get_swap_quota_tool,
     ]
     
-    llm = ChatOpenAI(model="gpt-3.5-turbo").bind_tools(tools)
-    # llm = ChatOpenAI(model="o3-mini").bind_tools(tools)
+    # llm = ChatOpenAI(model="gpt-3.5-turbo").bind_tools(tools)
+    llm = ChatOpenAI(model="o3-mini").bind_tools(tools)
     
     # If the first message in state is not a SystemMessage, add one at the beginning
     if not state["messages"] or state["messages"][0].type != "system":
@@ -80,7 +80,7 @@ async def chatbot(state: State):
 _TOOLS_MAP = {
         
     'get_token_price_tool': lambda t: Send('get_token_price', {
-        'coin_id': t['args']['coin_id'],
+        'token': t['args']['token'],
         'history_length_in_days': t['args']['history_length_in_days'],
         'tool_call_id': t['id']        
     }),

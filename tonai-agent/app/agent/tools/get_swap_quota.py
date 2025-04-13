@@ -101,5 +101,5 @@ async def get_swap_quota_streamed(input: SwapQuotaInput, writer: StreamWriter):
     tool_message = ToolMessage(content=json.dumps(best_quote), tool_call_id=tool_call_id)
     return {
         'messages': [tool_message],
-        'swap_quote_id': best_quote['quoteId']
+        'swap_quote_id': best_quote
     }
