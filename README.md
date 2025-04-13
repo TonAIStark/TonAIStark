@@ -22,7 +22,14 @@
 
 TonAI Stark is an AI-powered DeFi assistant designed to make crypto on Starknet simple, smart, and stylish. Think JARVIS meets Web3: users connect their wallets (like Argent X), and TonAI reads on-chain data to explain tokens, track trends, and guide actions like swaps or staking — always with clarity, confidence, and a touch of sarcasm. Built using OpenAI’s o3-mini model within the LangGraph framework, it leverages real-time tools like CoinGecko and AVNU to deliver sharp insights and smooth interactions. The frontend? A sleek Next.js + React interface that’s as polished as the assistant itself.
 
-See our presentation below! 🚀
+### Features
+* 🚀 Ask the agent which are the best trending tokens
+* 🚀 Ask the agent if a given token swapping is currently convenient using the AVNU platform 
+* 🚀 Perform token swapping within the interface and sign using the Argent X wallet
+
+### Presentation
+
+See our presentation below!
 
 https://github.com/user-attachments/assets/d6f4c4f2-f141-4a5f-92af-bd6bf72830bc
 
