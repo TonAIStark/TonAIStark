@@ -8,29 +8,34 @@ interface SwapNodeProps {
 }
 
 export default function SwapNode({ nodeState }: SwapNodeProps) {
-  console.log("SwapNode", nodeState);
-  if (nodeState?.swap_data?.done === false) {
-    return (
-      <div className="flex justify-end">
-        <Card className="inline-block">
-          <CardContent className="p-2">
-            <div className="flex items-center gap-2">
-              <Loader2 className="w-6 h-6 animate-spin" />
-              <div className="text-sm">{nodeState?.swap_data?.contractAddress}</div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
+  
+  console.log("porcodio... Salvata:", nodeState?.swap_quote_id);
 
-  if (nodeState?.swap_data?.done === true) {
-    return null;
-  }
 
-  return (
-    <div className="flex justify-end">
-      <SwapCard />
-    </div>
-  );
+  // if (nodeState?.swap_quote_id?.done === false) {
+  //   return (
+  //     <div className="flex justify-end">
+  //       <Card className="inline-block">
+  //         <CardContent className="p-2">
+  //           <div className="flex items-center gap-2">
+  //             <Loader2 className="w-6 h-6 animate-spin" />
+  //             <div className="text-sm">{nodeState?.swap_data?.contractAddress}</div>
+  //           </div>
+  //         </CardContent>
+  //       </Card>
+  //     </div>
+  //   );
+  // }
+
+  // if (nodeState?.swap_data?.done === true) {
+  //   return null;
+  // }
+
+  // return (
+  //   <div className="flex justify-end">
+  //     <SwapCard />
+  //   </div>
+  // );
+
+  return null;
 }

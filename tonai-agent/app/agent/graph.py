@@ -24,6 +24,10 @@ from .tools.get_swap_quota import (
     get_swap_quota_tool,
     get_swap_quota_streamed
 )
+# from .tools.sign_contract import (
+#     sign_contract_tool,
+#     sign_contract_streamed
+# )
 
 load_dotenv()
 
@@ -41,6 +45,8 @@ class State(lgraph.MessagesState):
     messages: Annotated[Sequence[AnyMessage], add_messages] \
         = field(default_factory=list)
     
+    swap_quote_id: str = field(default_factory="")
+    
 #==============================================
 # LLM agent
 #==============================================
@@ -52,7 +58,7 @@ async def chatbot(state: State):
     """     
     tools = [ 
         get_token_price_tool,
-        get_swap_quota_tool
+        get_swap_quota_tool,
     ]
     
     llm = ChatOpenAI(model="gpt-3.5-turbo").bind_tools(tools)
@@ -84,9 +90,8 @@ _TOOLS_MAP = {
         'token_to_buy': t['args']['token_to_buy'],
         'token_to_sell': t['args']['token_to_sell'],
         'sell_amount': t['args']['sell_amount'],
-    })
-
-
+    }),
+    
 }
 
 
@@ -116,11 +121,14 @@ workflow.add_node("chatbot", chatbot)
 workflow.add_node("get_token_price", get_token_price_streamed)
 workflow.add_node("get_swap_quota", get_swap_quota_streamed)
 
+# debugging
 workflow.add_edge(lgraph.START, "chatbot")
 workflow.add_conditional_edges("chatbot", route_tool)
 workflow.add_edge("get_token_price", "chatbot")
 workflow.add_edge("get_swap_quota", "chatbot")
+
 workflow.add_edge("chatbot", lgraph.END)
+
 
 memory = MemorySaver()
 graph = workflow.compile(checkpointer=memory)

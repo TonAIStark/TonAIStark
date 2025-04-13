@@ -47,6 +47,6 @@ cd tonai-agent; poetry install
 Run the agent
 
 ```bash
-poetry run serve
+poetry run server
 ```
 

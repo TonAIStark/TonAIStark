@@ -134,7 +134,7 @@ export default function ChatPage() {
       case '__start__':
       case 'chatbot':
         return <ChatbotNode nodeState={node.state} />;
-      case 'swap':
+      case 'get_swap_quota':
         return <SwapNode nodeState={node.state} />;
       case 'reminder':
         return <Reminder interruptValue={checkpoint.interruptValue as string} onResume={handleResume} />;
