@@ -4,17 +4,21 @@
 <p>
 </p>
 
-- [Project Overview](#project-overview)
-- [Technologies Used](#technologies-used)
-- [Screenshots](#screenshots)
-- [Installation Guide](#installation-guide)
+
+<h4 align="center">A genius, billionaire, playboy, philanthropist and now a beginner-friendly AI agent for the <a href="https://www.starknet.io/" target="_blank">Starknet</a>.</h4>
+
+<p align="center">
+  <a href="#project-overview">Overview</a> •
+  <a href="#technologies-used">Technologies</a> •
+  <a href="#screenshots">Screenshot</a> •
+  <a href="#installation-guide">Installation</a>
+</p>
 
 ## Project Overview
 
 ## Technologies Used
 
 ## Screenshots
-
 
 ## Installation Guide
 
