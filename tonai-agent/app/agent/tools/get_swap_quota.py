@@ -58,12 +58,12 @@ async def get_swap_quota_streamed(input: SwapQuotaInput, writer: StreamWriter):
     if token_to_buy not in SUPPORTED_STARKNET_TOKENS:
         print(f'Specified token to buy ({token_to_buy}) not supported')
         msg = ToolMessage(content=f'Token ({token_to_buy}) not supported', tool_call_id=tool_call_id)    
-        return {'messages': [msg], 'swap_quote_id': None}   
+        return {'messages': [msg], 'swap_data': None}   
     
     if token_to_sell not in SUPPORTED_STARKNET_TOKENS:
         print(f'Specified token to sell ({token_to_sell}) not supported')
         msg = ToolMessage(content=f'Token ({token_to_sell}) not supported', tool_call_id=tool_call_id)    
-        return {'messages': [msg], 'swap_quote_id': None}
+        return {'messages': [msg], 'swap_data': None}
     
     b_token = SUPPORTED_STARKNET_TOKENS[token_to_buy]
     s_token = SUPPORTED_STARKNET_TOKENS[token_to_sell] 
@@ -88,12 +88,12 @@ async def get_swap_quota_streamed(input: SwapQuotaInput, writer: StreamWriter):
     except:
         print(f'HTTP error when requesting swap quotes.')
         msg = ToolMessage(content=f'HTTP error when requesting swap quotes.', tool_call_id=tool_call_id)    
-        return {'messages': [msg], 'swap_quote_id': None}
+        return {'messages': [msg], 'swap_data': None}
 
     if len(results) == 0:
         print(f'No quotas found')
         msg = ToolMessage(content='No quotas found', tool_call_id=tool_call_id)    
-        return {'messages': [msg], 'swap_quote_id': None }
+        return {'messages': [msg], 'swap_data': None }
 
     best_quote = results[0]
     best_quote = { k:best_quote[k] for k in KEYS_TO_EXTRACT }
@@ -101,5 +101,5 @@ async def get_swap_quota_streamed(input: SwapQuotaInput, writer: StreamWriter):
     tool_message = ToolMessage(content=json.dumps(best_quote), tool_call_id=tool_call_id)
     return {
         'messages': [tool_message],
-        'swap_quote_id': best_quote
+        'swap_data': best_quote
     }

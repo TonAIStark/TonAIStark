@@ -9,10 +9,10 @@ interface SwapNodeProps {
 
 export default function SwapNode({ nodeState }: SwapNodeProps) {
   
-  console.log("porcodio... Salvata:", nodeState?.swap_quote_id);
+  console.log("porcodio... Salvata:", nodeState?.swap_data);
 
 
-  // if (nodeState?.swap_quote_id?.done === false) {
+  // if (nodeState?.swap_data?.done === false) {
   //   return (
   //     <div className="flex justify-end">
   //       <Card className="inline-block">

@@ -45,7 +45,7 @@ class State(lgraph.MessagesState):
     messages: Annotated[Sequence[AnyMessage], add_messages] \
         = field(default_factory=list)
     
-    swap_quote_id: dict = field(default_factory={})
+    swap_data: dict = field(default_factory={})
     
 #==============================================
 # LLM agent

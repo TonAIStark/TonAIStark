@@ -2,7 +2,7 @@ import { WithMessages } from "@/hooks/useLangGraphAgent/types";
 
 // The agent state which mirrors the LangGraph state. If your sate have messages, extend WithMessages interface.
 export interface AgentState extends WithMessages {
-  swap_quote_id: string;
+  swap_data: string;
 }
 
 // export interface SwapData {
