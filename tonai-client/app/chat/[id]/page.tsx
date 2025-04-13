@@ -165,7 +165,7 @@ export default function ChatPage() {
         ref={messagesContainerRef}
         className="flex-1 overflow-y-auto px-4 relative"
       >
-        <div className="space-y-2 max-w-2xl mx-auto w-full">
+        <div className="space-y-2 max-w-4xl mx-auto w-full">
           {appCheckpoints.map((checkpoint) => (
             <div key={checkpoint.checkpointConfig.configurable.checkpoint_id} className="space-y-2">
               {showNodesinfo && (

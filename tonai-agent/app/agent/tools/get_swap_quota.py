@@ -73,7 +73,7 @@ async def get_swap_quota_streamed(input: SwapQuotaInput, writer: StreamWriter):
     sell_amount_hex = dec_2_erc20hex(float(sell_amount), s_token['decimals'])
 
     # do the HTTP request
-    base_url = f"https://starknet.api.avnu.fi/swap/v2/quotes"
+    base_url = f"https://sepolia.api.avnu.fi/swap/v2/quotes"
     headers  = {"accept": "application/json"}
     qparams  = {
         'sellTokenAddress': s_token['address'], 
@@ -97,6 +97,7 @@ async def get_swap_quota_streamed(input: SwapQuotaInput, writer: StreamWriter):
 
     best_quote = results[0]
     best_quote = { k:best_quote[k] for k in KEYS_TO_EXTRACT }
+    best_quote["priceRatioUsd"] = float(best_quote["priceRatioUsd"])/100
 
     tool_message = ToolMessage(content=json.dumps(best_quote), tool_call_id=tool_call_id)
     return {

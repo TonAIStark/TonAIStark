@@ -17,13 +17,13 @@ export function ChatbotNode({ nodeState }: ChatbotNodeProps) {
     switch (type) {
       case 'ai':
         return {
-          icon: <img src="/assets/ironman-icon.png" alt="AI" className="h-9 w-9"/>,
+          icon: <img src="/assets/ironman-icon.png" alt="AI" className="h-25 w-25"/>,
           className: baseClasses
         };
       case 'user':
       case 'human':
         return {
-          icon: <img src="/assets/spooderman-icon.png" alt="AI" className="h-8 w-8 rounded-full"/>,
+          icon: <img src="/assets/spooderman-icon.png" alt="AI" className="h-25 w-25 rounded-full"/>,
           className: baseClasses
         };
       default:
