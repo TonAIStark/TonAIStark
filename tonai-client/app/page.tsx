@@ -38,7 +38,7 @@ export default function WelcomePage() {
         {/* Wallet Connect Button */}
         <div className="text-center">
           <button
-            className="bg-secondary text-secondary-foreground hover:opacity-90 transition-opacity px-6 py-3 rounded-lg text-base font-medium mr-4"
+            className="bg-secondary text-secondary-foreground hover:opacity-90 transition-opacity px-6 py-3 rounded-lg text-base font-medium"
             onClick={handleConnectWallet}
           >
             {walletAddress ? `Connected: ${walletAddress.slice(0, 6)}...` : "Connect Argent X"}

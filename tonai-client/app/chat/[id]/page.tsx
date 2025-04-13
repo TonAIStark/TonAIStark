@@ -145,7 +145,7 @@ export default function ChatPage() {
 
   return (
     <div className="flex flex-col h-screen">
-      <div className="flex justify-end flex-shrink-0 p-2 mt-10">
+      {/* <div className="flex justify-end flex-shrink-0 p-2 mt-10">
         <div className="flex items-center space-x-2">
           <Checkbox
             id="show-nodesinfo"
@@ -159,11 +159,11 @@ export default function ChatPage() {
             debug
           </label>
         </div>
-      </div>
+      </div> */}
 
       <div
         ref={messagesContainerRef}
-        className="flex-1 overflow-y-auto px-4 relative"
+        className="flex-1 overflow-y-auto px-4 relative mt-10"
       >
         <div className="space-y-2 max-w-4xl mx-auto w-full">
           {appCheckpoints.map((checkpoint) => (
