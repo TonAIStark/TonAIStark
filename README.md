@@ -102,22 +102,7 @@ The client should now be running at `http://localhost:3000` (or another port if 
 pip install poetry
 ```
 
-#### 2. Install AVNU API Python Client (SDK)
-
-First, install the required setuptools:
-
-```bash
-pip install setuptools
-```
-
-Then navigate to the SDK directory and install it:
-
-```bash
-cd sdk/avnu-python-client
-python setup.py install
-```
-
-#### 3. Install Agent Dependencies
+#### 2. Install Agent Dependencies
 
 Navigate to the agent directory and install dependencies using Poetry:
 
@@ -126,7 +111,7 @@ cd tonai-agent
 poetry install
 ```
 
-#### 4. Run the Agent
+#### 3. Run the Agent
 
 Start the agent service:
 
